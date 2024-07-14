@@ -38,8 +38,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'crispy_forms', # Add crispy_forms to installed apps
+    'crispy_bootstrap5', # Add crispy_bootstrap5 to installed apps
+
+
     'accounts',
+    'todos',
 ]
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5' # Set the allowed template pack
+CRISPY_TEMPLATE_PACK = 'bootstrap5' # Set the template pack
+
+AUTH_USER_MODEL = 'accounts.CustomUser' # Set the custom user model
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

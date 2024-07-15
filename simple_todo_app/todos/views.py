@@ -6,7 +6,7 @@ from .models import Todo
 
 # Create your views here.
 def list_todo_items(request):
-    return HttpResponse('Todo list')
+    return render(request, 'todos/todo_dashboard.html')
 
 # class TodoListView(ListView):
 #     return render(request, 'todos/list_todo_items.html')

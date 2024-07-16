@@ -10,4 +10,5 @@ class Todo(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     createdBy = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
 
-
+    def __str__(self):
+        return f"{self.content} - {self.createdBy} - {self.completed}"

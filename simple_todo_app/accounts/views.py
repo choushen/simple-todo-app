@@ -29,7 +29,7 @@ def login(request):
 
             if user is not None:
                 auth_login(request, user) # Login user using Django's built-in login function
-                return HttpResponse('User is authenticated') 
+                return redirect('list_todo_items')
 
     context = {'LoginForm': form} # Pass form to template
 

@@ -28,3 +28,8 @@ def add_todo_item(request:HttpRequest):
         todo.save()
         
     return redirect('list_todo_items')
+
+@login_required
+def delete_todo_item(request, id):
+    Todo.objects.get(id=id).delete()
+    return redirect('list_todo_items')

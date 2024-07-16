@@ -10,34 +10,34 @@
         <h1 class="mb-4 text-center">Welcome, {{ user.first_name|capfirst }}!</h1>
 
         {% for todo in todos %}
-        <div class="card">
-            <!-- <div class="card-header shadow-sm bg-white">
-            </div> -->
-            <div class="card-body">
-                <p>{{ todo.content }}</p>
+        <div class="card my-2">
+            <div class="card-body d-flex justify-content-between align-items-center">
+                <p class="mb-0 todo-content">{{ todo.content }}</p>
+                <form method="POST" action="{% url 'delete_todo_item' todo.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-primary btn-sm ml-2">Delete</button>
+                </form>
             </div>
         </div>
-    {% empty %}
+        {% empty %}
         <div class="card">
             <div class="card-body">
                 <p>You have no todos</p>
             </div>
         </div>
-    {% endfor %}
-    <div class="card  mt-2">
-        <div class="card-body">
-            <form action="{% url 'add_todo_item' %}" method="post" autocomplete="off">
-                {% csrf_token %}
-                <div class="input-group">
-                    <input type="text" class="form-control" name="content" placeholder="Write your todo here..." >
-                    <div class="input-group-append text-info">
-                        
+        {% endfor %}
+        <div class="card mt-2">
+                <form action="{% url 'add_todo_item' %}" method="post" autocomplete="off">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <textarea class="form-control" name="content" placeholder="Write your todo here..."></textarea>
+                        <div class="input-group-append text-info">
+                        </div>
+                        <button class="btn btn-secondary" type="submit">Add</button>
                     </div>
-                    <button class="btn btn-secondary" type="submit">Add</button>
-                </div>
-            </form>        
+                </form>        
+            </div>
         </div>
-
     </div>
 </div>
 {% endblock %}

@@ -1,0 +1,21 @@
+.card-body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.todo-content {
+    flex: 1;
+    margin-right: 10px; 
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-word; 
+}
+
+textarea.form-control {
+    resize: none; 
+    height: 100px;
+    min-height: 38px;
+    overflow-wrap: break-word; 
+    word-break: break-word; 
+}
